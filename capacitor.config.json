@@ -1,0 +1,6 @@
+{
+  "appId": "com.flexlist.app",
+  "appName": "FlexList",
+  "webDir": "client/dist",
+  "bundledWebRuntime": false
+}
