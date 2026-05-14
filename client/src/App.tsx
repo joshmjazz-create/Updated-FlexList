@@ -11,7 +11,9 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Collections} />
+      <Route path="/Updated-FlexList/" component={Collections} />
       <Route path="/collections/:collectionId?" component={Collections} />
+      <Route path="/Updated-FlexList/collections/:collectionId?" component={Collections} />
       <Route component={NotFound} />
     </Switch>
   );
