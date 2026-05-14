@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/contexts/theme-context";
 import Collections from "@/pages/collections";
 import NotFound from "@/pages/not-found";
+import InstallAppBanner from "@/components/install-app-banner";
 
 function Router() {
   return (
@@ -24,6 +25,7 @@ function App() {
     <ThemeProvider>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
+          <InstallAppBanner />
           <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
             <Router />
             <Toaster />
