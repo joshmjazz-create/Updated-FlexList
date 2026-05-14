@@ -77,12 +77,11 @@ export default function InstallAppBanner() {
     const detectedDevice = detectDevice();
     setDevice(detectedDevice);
 
-    const dismissed = localStorage.getItem("flexlist-install-banner-dismissed");
     const isStandalone =
-      window.matchMedia("(display-mode: standalone)").matches ||
-      (window.navigator as any).standalone === true;
+  window.matchMedia("(display-mode: standalone)").matches ||
+  (window.navigator as any).standalone === true;
 
-    if (!dismissed && !isStandalone) {
+    if (!isStandalone) {
       setShowBanner(true);
     }
   }, []);
@@ -93,7 +92,7 @@ export default function InstallAppBanner() {
 
   return (
     <>
-      <div className="w-full bg-blue-600 text-white shadow-md z-50">
+      <div className="w-full bg-blue-600 text-white shadow-md z-50 animate-in slide-in-from-top duration-500">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <Download className="w-7 h-7 flex-shrink-0" />
@@ -114,10 +113,7 @@ export default function InstallAppBanner() {
             </button>
 
             <button
-              onClick={() => {
-                localStorage.setItem("flexlist-install-banner-dismissed", "true");
-                setShowBanner(false);
-              }}
+              onClick={() => setShowBanner(false)}
               className="text-white hover:text-blue-100"
               aria-label="Close install banner"
             >
@@ -129,7 +125,7 @@ export default function InstallAppBanner() {
 
       {showModal && (
         <div className="fixed inset-0 bg-black/75 z-50 flex items-center justify-center px-4">
-          <div className="bg-white text-gray-900 rounded-xl shadow-xl max-w-xl w-full p-8 relative border border-blue-200">
+          <div className="bg-white text-gray-900 rounded-xl shadow-xl max-w-xl w-full p-8 relative border border-blue-200 animate-in zoom-in-95 fade-in duration-300">
             <button
               onClick={() => setShowModal(false)}
               className="absolute top-4 right-4 border-4 border-blue-300 rounded-xl p-1 text-gray-700 hover:bg-gray-100"
